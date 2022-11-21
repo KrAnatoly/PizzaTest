@@ -10,12 +10,12 @@ function EmployeeItem({ employee }) {
 
     return (
         <Link to={`/employee/${employee.id}`}>
-            <div>
+            <div className='emloyee-item'>
                 <div>Имя: {employee.name}</div>
                 <div>Должность: {role[employee.role]}</div>
                 <div>Номер телефона: {employee.phone}</div>
                 <div>Дата рождения: {employee.birthday}</div>
-                <div>В архиве: {employee.isArchive ? <p>да</p> : <p>нет</p>}</div>
+                <div>В архиве: {employee.isArchive ? <span>да</span> : <span>нет</span>}</div>
             </div>
         </Link>
     )

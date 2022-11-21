@@ -33,13 +33,13 @@ function Mainpage() {
         dispatch({ type: SORT_ARCHIVE, payload: checked });
     }
     return (
-        <>
-            <div>
+        <div className='main-gallery'>
+            <div className='button-gallery'>
                 <button onClick={() => nameSort()}>Сортировка по имени</button>
                 <button onClick={() => bithDaySort()}>Сортировка по дате рождения</button>
                 <div>
                     <label htmlFor="form" >Сортировка по должности</label>
-                    <select onChange={roleSort} name="role" id='form' >
+                    <select className="select-css" onChange={roleSort} name="role" id='form' >
                         <option value="none">Выберите должность</option>
                         <option value="cook">Повар</option>
                         <option value="waiter">Официант</option>
@@ -47,22 +47,22 @@ function Mainpage() {
                     </select>
                 </div>
                 <div>
+                    <input type="checkbox" className="checkbox" onChange={() => sortArchive()} name='isArchived' id='isArchived' />
                     <label htmlFor="isArchived">В архиве</label>
-                    <input type="checkbox" onChange={() => sortArchive()} name='isArchived' id='isArchived' />
                 </div>
             </div>
-            <div>
+            <div className='employees-gallery'>
                 {
                     (choseFilter === 'none') ? (employees && employees.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
                         : (choseFilter === 'role') ? (sortByRole.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
                             : (sortByArchive && sortByArchive.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
                 }
             </div>
-            <div>
+            <div className='add-employee'>
                 <button onClick={() => addEmpl()}>Добавить сотрудника</button>
-                <div>{editIn ? <AddEmployeeForm /> : <></>}</div>
+                <div className='form-div'>{editIn ? <AddEmployeeForm /> : <></>}</div>
             </div>
-        </>
+        </div>
     )
 };
 

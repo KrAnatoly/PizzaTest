@@ -15,7 +15,7 @@ function App() {
   }
   useEffect(() => {
     fetchEmployees();
-  }, []);
+  }, );
   return (
     <Routes>
       <Route path="/" element={<Mainpage />} />
