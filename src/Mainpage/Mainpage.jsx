@@ -67,7 +67,7 @@ function Mainpage() {
       </div>
       <div className="add-employee">
         <button type="button" onClick={() => addEmpl()}>Добавить сотрудника</button>
-        <div className="form-div">{editIn && <AddEmployeeForm />}</div>
+        <div className="form-div">{editIn && <AddEmployeeForm setChoseFilter={setChoseFilter} />}</div>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import { IMaskInput } from 'react-imask';
 import { useDispatch } from 'react-redux';
 import { ADD_EMPLOYEE } from '../reducers/employeesAT';
 
-function AddEmployeeForm() {
+function AddEmployeeForm({ setChoseFilter }) {
   const dispatch = useDispatch();
   const [warning, setWarning] = useState(false);
   const [ok, setOk] = useState(false);
@@ -27,6 +28,7 @@ function AddEmployeeForm() {
       dispatch({ type: ADD_EMPLOYEE, payload: data });
       setOk((prev) => !prev);
       setWarning(false);
+      setChoseFilter('none');
       e.target.reset();
     } else setWarning((prev) => !prev);
   }
