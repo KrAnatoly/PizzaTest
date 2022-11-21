@@ -12,6 +12,7 @@ import {
 function Mainpage() {
   const dispatch = useDispatch();
   const { employees, sortByArchive, sortByRole } = useSelector((store) => store.employeesState);
+  console.log(employees);
   const [editIn, setEditIn] = useState(false);
   const [checked, setChecked] = useState(false);
   const [choseFilter, setChoseFilter] = useState('none');
@@ -55,13 +56,14 @@ function Mainpage() {
           <input type="checkbox" className="checkbox" onChange={() => sortArchive()} name="isArchived" id="isArchived" />
           <label htmlFor="isArchived">В архиве</label>
         </div>
+        <button type="button" onClick={() => setChoseFilter('none')}>Сбросить фильтры</button>
       </div>
       <div className="employees-gallery">
         {
-                    (choseFilter === 'none') ? (employees && employees.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
-                      : (choseFilter === 'role') ? (sortByRole.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
-                        : (sortByArchive && sortByArchive.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
-                }
+          (choseFilter === 'none') ? (employees && employees.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
+            : (choseFilter === 'role') ? (sortByRole.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
+              : (sortByArchive && sortByArchive.map((employee) => <EmployeeItem key={employee.id} employee={employee} />))
+        }
       </div>
       <div className="add-employee">
         <button type="button" onClick={() => addEmpl()}>Добавить сотрудника</button>
