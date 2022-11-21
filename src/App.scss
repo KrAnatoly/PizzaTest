@@ -23,44 +23,42 @@ button {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-}
-button {
   background-color: $clr;
-background-image: linear-gradient(315deg, $clr 0%, #03c8a8 74%);
+  background-image: linear-gradient(315deg, $clr 0%, #03c8a8 74%);
   border: none;
   z-index: 1;
-}
-button:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 5px;
-   background-color: $clr;
-background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
-  box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
-  transition: all 0.3s ease;
-}
-button:hover {
-  color: rgb(16, 13, 57);
-}
-button:hover:after {
-  top: 0;
-  height: 100%;
-}
-button:active {
-  top: 2px;
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: $clr;
+    background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+    box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    color: rgb(16, 13, 57);
+    &:after {
+      top: 0;
+      height: 100%;
+    }
+    &:active {
+      top: 2px;
+    }
+  }
 }
 
 .checkbox {
@@ -73,30 +71,30 @@ button:active {
 	position: relative;
 	padding: 0 0 0 60px;
 	cursor: pointer;
-}
-.checkbox + label:before {
-	content: '';
-	position: absolute;
-	top: -4px;
-	left: 0;
-	width: 50px;
-	height: 26px;
-	border-radius: 13px;
-	background: #CDD1DA;
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
-	transition: .2s;
-}
-.checkbox + label:after {
-	content: '';
-	position: absolute;
-	top: -2px;
-	left: 2px;
-	width: 22px;
-	height: 22px;
-	border-radius: 10px;
-	background: #FFF;
-	box-shadow: 0 2px 5px rgba(0,0,0,.3);
-	transition: .2s;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+    transition: .2s;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: .2s;
+  }
 }
 .checkbox:checked + label:before {
 	background: $clr;
@@ -118,7 +116,7 @@ button:active {
   box-sizing: border-box; 
   margin-top: 5px; 
   border: 1px solid #aaa;
-   box-shadow: 0 1px 0 1px rgba(0,0,0,.04); 
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04); 
   border-radius: .5em;
    -moz-appearance: none;
    -webkit-appearance: none;
@@ -128,42 +126,42 @@ button:active {
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
   background-size: .65em auto, 100%; 
+  &:hover { border-color: #888; }
+  &:focus { border-color: #aaa; 
+    box-shadow: 0 0 1px 3px $clr;
+    box-shadow: 0 0 0 3px -moz-mac-focusring; 
+   color: #222;
+    outline: none; 
+   } 
   } 
    .select-css::-ms-expand { display: none; } 
-   .select-css:hover { border-color: #888; } 
-   .select-css:focus { border-color: #aaa; 
-   box-shadow: 0 0 1px 3px $clr;
-   box-shadow: 0 0 0 3px -moz-mac-focusring; 
-  color: #222;
-   outline: none; 
-  } 
    .select-css option { font-weight:normal; } 
    *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css { 
   background-position: left .7em top 50%, 0 0; 
   padding: .6em .8em .5em 1.4em; 
   }
 
-  input{
-    padding: 1vh;
-    border-radius: 5px;
-  }
+input{
+  padding: 1vh;
+  border-radius: 5px;
+}
 
-  .add-employee{
-    text-align: center;
-  }
+.add-employee{
+  text-align: center;
+}
   
-  form{
-    @extend %flex-option;
-    flex-direction: column;
-    gap: 2vh;
-  }
+form{
+  @extend %flex-option;
+  flex-direction: column;
+  gap: 2vh;
+}
 
-  .form-div{
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center
-  }
+.form-div{
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center
+}
 
 .employees-gallery{
   @extend %flex-option;
@@ -178,6 +176,20 @@ button:active {
   gap: 2vh;
 }
 
+@media (max-width: 1006px){
+  *{
+    font-size: 12px;
+  }
+  .button-gallery{
+    @extend %flex-option;
+    flex-direction: column;
+    text-align: center;
+    gap: 1vh;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .main-gallery{
   @extend %flex-option;
   flex-direction: column;
@@ -201,6 +213,13 @@ button:active {
 .btn{
   margin-left: auto;
   margin-right: auto;
+}
+
+.not-found{
+  p{
+    font-size: $fz*4;
+  }
+  text-align: center;
 }
 
 

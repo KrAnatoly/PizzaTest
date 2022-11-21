@@ -2,10 +2,10 @@ import React from 'react';
 
 function NotFoundPage() {
   return (
-    <div>
-      This page is not found :(
+    <div className="not-found">
+      <p>Страница не найдена :(</p>
       {' '}
-      <a href="/">home</a>
+      <a href="/"><button type="button">На главную</button></a>
     </div>
   );
 }
